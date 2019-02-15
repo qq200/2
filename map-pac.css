@@ -11,3 +11,26 @@
     border: 1px solid #777;
     float: left;
 }
+#map .Pacman{
+    background-image: url(Pacman.png)
+
+}
+#map .Cherry{
+    background-image: url(Cherry.png)
+
+}
+#map .Bomb{
+    background-image: url(Bomb.png)
+
+}
+#map .Coin{
+    background-image: url(Coin.png)
+
+}
+#map .Pacman.left{
+    transform: scaleX(-1)
+}
+#map .Pacman.explosion{
+    background-image: url(explosion.gif);
+    background-size: cover;
+}
