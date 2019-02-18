@@ -19,7 +19,7 @@ var score=0;
 class GameMap{
     constructor(){
         this.grid=[
-            CHERRY,EMPTY,EMPTY,BOMB,PACMAN,BOMB,COIN,CHERRY,EMPTY,EMPTY
+            CHERRY,COIN,BOMB,EMPTY,PACMAN,BOMB,COIN,CHERRY,EMPTY,BOMB
              ]; //index 6
     }
     render(){
@@ -31,78 +31,92 @@ class GameMap{
             switch(this.grid[i]){
                     case EMPTY: break;
                     case PACMAN: c='Pacman'; 
-                    if(pac_direction=="left"){
-                        c+=' left';
-                    }
-                    if(pac_explosion==true){
+                        if(pac_direction=="left"){
+                        c+=' left';}                    
+                         if(pac_explosion==true){
                         c+=' explosion';
                         // taimer pe o secunde
-                        setTimeout(endExplosion, 1000);
-                    }
-                    break;
+                        setTimeout(endExplosion, 1000);}                                                            
+                         break;
                     case CHERRY: c='Cherry'; break;
-                    case BOMB: c='Bomb'; break;
-                    case COIN: c='Coin'; break;
-                    
-                }
-                html+=`<div class="${c}"></div>`;
-
-
-        }
-        
-                                        // {if(this.grid[i]==1){
-                                        // html+=`<div><img src="Images/Pacman.png" width="42" height="42"></div>`;
-                                        // }else{if(this.grid[i]==2){
-                                        //  html+=`<div><img src="Images/Cherry.png" width="42" height="42"></div>`;            
-                                        // }else{if(this.grid[i]==3){
-                                        //  html+=`<div><img src="Images/Bomb.png" width="42" height="42"></div>`;  
-                                        // }else{if(this.grid[i]==4){
-                                        //  html+=`<div><img src="Images/Coin.png" width="42" height="42"></div>`; 
-                                        // }else{
-                                        // html+=`<div></div>`;
-                                        // }}}}}       
-         div.innerHTML=html
-    }
+                    case BOMB: c='Bomb'; break;                    
+                    case COIN:c='Coin'; break;                    
+            }                
+        html+=`<div class="${c}"></div>`;} 
+        div.innerHTML=html;        
+}     
     action(){
         if(event.code=='ArrowLeft'){
             pac_direction="left";
-            this.moveLeft();
-            // alert("move Left");
-        }
+            this.moveLeft();}
         if(event.code=='ArrowRight'){
             pac_direction="right";
-            this.moveRight()
-            // alert("move Right");
-        }
+            this.moveRight()}
     }
     moveLeft(){
-        // find index pacman
+            // find index pacman
         var index=this.grid.indexOf(PACMAN);
-        // alert(index);
-        // delete pacman for curent position
+            // alert(index);
+            // delete pacman for curent position
         this.grid[index]=0;
-        // check wat is there?
+            // check wat is there?
         if(this.grid[index-1]==BOMB){
-            pac_explosion=true;}//daca este bomba reinscrie var cu true
-        
-        // set pacman to next position
-        this.grid[index-1]=PACMAN;
-        // render result
-        this.render();
-
+            pac_explosion=true;
+            health-=50;
+            var theEl = document.getElementById("health");
+            theEl.innerHTML =`${health}`;        
+        };  //daca este bomba reinscrie var cu true
+        if(this.grid[index-1]==COIN){
+            score+=5;
+            var theElement = document.getElementById("coin");
+            theElement.innerHTML =`${score}`;
+        };
+        if(this.grid[index-1]==CHERRY){
+            health+=30;
+            var theEl = document.getElementById("health");
+            theEl.innerHTML =`${health}`;
+        };
+            // set pacman to next position
+        if(this.grid[index-1]>=0){
+            this.grid[index-1]=PACMAN;}
+            else{PACMAN=this.grid[0]};
+        if(health<=0){
+            alert('Pacman died!');
+        };
+            // render result
+    this.render();
     }
     moveRight(){
-        // find index pacman
+            // find index pacman
         var index=this.grid.indexOf(PACMAN);
-        // alert(index);
-        // delete pacman for curent position
+            // alert(index);
+            // delete pacman for curent position
         this.grid[index]=0;
-        // set pacman to next position
-        if(this.grid[index-1]==BOMB){
-            pac_explosion=true;}
-        this.grid[index+1]=PACMAN;
-        // render result
-        this.render();
-    }
+            // set pacman to next position
+        if(this.grid[index+1]==BOMB){
+            pac_explosion=true;
+            health-=50;
+            var theEl = document.getElementById("health");
+            theEl.innerHTML =`${health}`;
+        };
+        if(this.grid[index+1]==COIN){
+            score+=5;
+            var theElement = document.getElementById("coin");
+            theElement.innerHTML =`${score}`;
+        };
+        if(this.grid[index+1]==CHERRY){
+            health+=30;
+            var theElement = document.getElementById("health");
+            theElement.innerHTML =`${health}`;
+        };
+        if(this.grid[index+1]<9){
+            this.grid[index+1]=PACMAN;          
+        }else{PACMAN=this.grid[9]};      
+            // render result
+        if(health<=0){
+            alert('Pacman died!');
+        };
+    this.render();        
+    }    
+};
 
-}

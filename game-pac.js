@@ -2,4 +2,3 @@
 
 var m = new GameMap();
 m.render();
-

@@ -13,24 +13,42 @@
 }
 #map .Pacman{
     background-image: url(Pacman.png)
-
 }
 #map .Cherry{
     background-image: url(Cherry.png)
-
-}
+    }
 #map .Bomb{
     background-image: url(Bomb.png)
-
-}
+    }
 #map .Coin{
     background-image: url(Coin.png)
-
-}
+    }
 #map .Pacman.left{
     transform: scaleX(-1)
-}
+    }
 #map .Pacman.explosion{
     background-image: url(explosion.gif);
     background-size: cover;
-}
+    }
+#info{
+    margin-top:30px;
+    border: 2px solid #777;
+    width: 200px;
+    height:230px ;
+    }
+#info div{
+    border: 2px solid #777;
+    }
+#info img{
+    margin-left:20px;
+    margin-top: 20px;
+    height:60px;
+    width: 60px;    
+    }
+#info span{
+    box-align: center;
+    margin-left: 50px;
+    line-height: 0.9em;
+    font-size: 40px;
+    box-align: right;
+    }
