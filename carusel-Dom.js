@@ -27,16 +27,23 @@ function showSlide(efect,n){  //conecteaza patratele imaginii
         let y=-100*row;
         let d=Math.random()/2;
         // let efect= 'flipInX';
-        let src=slides[n].src;
+        let src=slides[n].src;        
         let html=`<div style="background-image: url('${src}'); background-position: ${x}px ${y}px; animation-delay:${d}s;" class="box ${efect} animated">
         </div>`;
         div_slide.innerHTML+=html;
         }
     }
-
+}
+function titleShow(n){
+    let tit=slides[n].title;
+    let html2=`
+    <h1 class="title">${tit}<br><button> Click </button></h1>
+    `;
+    document.querySelector('#carusel .slide').innerHTML+=html2;
 
 }
 showSlide('flip',2);
+titleShow(2);
 
 
 // titlul fiecarui element sa apara in h1
