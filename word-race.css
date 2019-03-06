@@ -1,0 +1,13 @@
+body{
+    background-color: #777;
+    text-align: center;
+    margin: 0px;
+}
+#world{
+    width: 700px;
+    height: 100vh;
+    border-right: 20px solid #555;
+    border-left: 20px solid #555;
+    display: inline-block;
+
+}

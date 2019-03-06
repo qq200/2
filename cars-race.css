@@ -1,0 +1,9 @@
+.car{
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    bottom: 10px
+}
+.car.main{
+    background-image: url(images/Car.png)
+}

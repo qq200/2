@@ -1,0 +1,6 @@
+#left,#right{
+    width: 200px;
+    height: 100%;
+    background-color: green;
+    display: inline-block;
+}
