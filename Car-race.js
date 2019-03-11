@@ -21,10 +21,31 @@ class Car{
         this.left+=10;
         this.updateStyle();
     }
+    speedUp(){
+        this.speed+=20;
+        var y=parseInt(road.style.backgroundPositionY);
+        if(y<60){
+            y+=player_car.speed;
+        }else{
+            y=60;
+        }        
+        road.style.backgroundPositionY=`${y}px`;
+        console.log(road.style.backgroundPositionY);       
+    }
+    speedDown(){
+        this.speed-=20;
+        var y=parseInt(road.style.backgroundPositionY);
+        if(y>30){
+            y-=player_car.speed;
+        }else{
+            y=30;
+        }
+        road.style.backgroundPositionY=`${y}px`;
+        console.log(road.style.backgroundPositionY);       
+    }
     updateStyle(){
         // reinnoeste style divului
         this.div.style.left=`${this.left}px`;
+
     }
 }
-
-
