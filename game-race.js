@@ -9,7 +9,12 @@ function action(){
     if(event.code=='ArrowLeft'){
         player_car.steerLeft();
     }
-
+    if(event.code=='ArrowUp'){
+        player_car.speedUp();
+    }
+    if(event.code=='ArrowDown'){
+        player_car.speedDown();
+    }
     // de adaugat inca 2 if care controleaza speed
     // alert(event.code);
 }
@@ -22,4 +27,4 @@ function animate(){
         console.log(road.style.backgroundPositionY);
 }
 
-setInterval(animate, 30);
+setInterval(animate, 300);
