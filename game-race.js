@@ -28,3 +28,7 @@ function animate(){
 }
 
 setInterval(animate, 300);
+
+
+//de adaugat div cu lumina, cu pozitia absolut, de pus linear gradient, bleanding colors,
+// pe un buton de pornit lumina si de oprit
