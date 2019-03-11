@@ -1,0 +1,12 @@
+<script>
+var name=localStorage.getItem('user');
+if(name==null){
+   let n=prompt('Your name?');
+    localStorage.setItem('user', n);
+    
+}else{
+    alert(`Hello ${name}`);
+}
+
+
+</script>

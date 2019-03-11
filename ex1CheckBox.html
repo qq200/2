@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>CheckBox</title>
+</head>
+<body>
+    <h1>Term&Conditions</h1>
+    <hr>
+    <input type="checkbox" onchange="remember()">I agree
+
+
+    <script>
+    //retine checboxul
+    function remember(){
+        var input=document.getElementsByTagName('input')[0];
+        // console.dir(input.checked);
+        localStorage.setItem('checkbox', input.checked)
+    }
+    // verifica localStorage daca e inscris
+    function isChecked(){
+        var checked=localStorage.getItem('checkbox');
+        console.log(checked);
+        var input=document.getElementsByTagName('input')[0];
+        if(checked=="true"){
+            input.checked=true;
+        }
+    }
+    isChecked();
+    
+    </script>
+</body>
+</html>
