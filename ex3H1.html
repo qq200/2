@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body id="xx">
+
+
+    <input type="text" placeholder="your name"><button onclick="faceControl()">OK</button>
+
+<script>
+    function faceControl(){
+        var input=document.getElementsByTagName('input')[0];
+        localStorage.setItem('text', input.value);
+        if(input.value!=null){
+            document.getElementById('xx').innerHTML=`<h1 id="title">Welcom dear ${input.value} !!!</h1>`;
+        }   
+    }
+    function isValid(){
+        var val=localStorage.getItem('text');
+        if(val!==null){
+            document.getElementById('xx').innerHTML=`<h1 id="title">Welcom dear ${val} !!!</h1>`;
+        }
+    }
+    isValid();
+</script>
+</body>
+</html>
