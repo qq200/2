@@ -9,7 +9,7 @@ class Message{
 }
 ///////////////////////////////
 var messages=[];
-var messages2=messages
+
 function addMessage(){
     var input=document.querySelector("#chat .input input");
     //2) validation:
@@ -45,7 +45,7 @@ function showMesseges(){
         </div>`;
         div.innerHTML+=html;
     }
-    messages.length=8;
+    
 }
 
 // var m=new Message("hello","osama_b");
