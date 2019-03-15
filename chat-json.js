@@ -8,13 +8,13 @@ class Message{
     }
 }
 ///////////////////////////////
-var messages=[
-
-];
+var messages=[];
+var messages2=messages
 function addMessage(){
     var input=document.querySelector("#chat .input input");
     //2) validation:
     // mesage>=2 si nu include no space
+    if(input.value.trim().length>2){     
     var m=new Message(input.value, "user");
         messages.push(m); // adauga in masiv la urma m
     // alert(input.value);
@@ -22,6 +22,9 @@ function addMessage(){
     // console.log(messages)
     input.value="";
     showMesseges();
+    }else{
+        alert('no text')
+    }
 }
 function loadMesages(){
     messages=JSON.parse(localStorage.getItem('messages'));
@@ -42,6 +45,7 @@ function showMesseges(){
         </div>`;
         div.innerHTML+=html;
     }
+    messages.length=8;
 }
 
 // var m=new Message("hello","osama_b");
